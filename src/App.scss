@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+.App{
+  font-family: 'fonts';
 }
 
 .App-logo {
@@ -35,4 +35,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: "fonts";
+  font-weight: normal;
+  font-style: normal;
+ src:url('./static/Rezvan.ttf')
 }

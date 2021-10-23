@@ -1,33 +1,21 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
+//components
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer'
+
+//sass
 import './App.scss';
 
 function App() {
   return (
-    <div className='container'>
-      <div className="row">
-        <div className="col">
-          header
-        </div>
-        <div className="row">
-          <div className="col">
-            category
-          </div>
-          <div>
-            product
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            category
-          </div>
-          <div>
-            
-          </div>
-        </div>
-      </div>
-      
-  </div>
+    <div className="App">
+      <Container>
+        <Header />
+        <Footer />
+      </Container>
+    </div>
   );
 }
 
