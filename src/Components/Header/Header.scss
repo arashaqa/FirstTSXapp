@@ -1,0 +1,18 @@
+#links:hover{
+    border-bottom: 1px solid whitesmoke;
+    transition: all .3s ease-in-out;
+}
+#links{
+    transition: all .3s ease-in;
+
+    // border-bottom: 1px  solid rgba(102, 51, 153, 0.263);
+    padding:10px
+}
+#nav{
+    background-color: rgba(102, 51, 153, 0.263);
+
+    border-radius: 0px  0px 10px 10px  ;
+}
+#brand{
+    padding:10px;
+}
