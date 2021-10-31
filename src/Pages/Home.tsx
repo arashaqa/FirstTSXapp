@@ -24,7 +24,7 @@ const Home = (props: propsHome) => {
                 <b.Row><h2>محصولات برترـــ</h2></b.Row>
             <b.Row>
                 {product.map(item => {
-                    return (<b.Col xs={6} sm={1} lg={3} md={2} key={item._id}>
+                    return (<b.Col xs={4} sm={6} lg={4} md={4} key={item._id}>
 											<Product product={item}/>
                     </b.Col>)
                 })}
