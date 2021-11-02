@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import {useSelector,useDispatch} from 'react-redux'
 import * as b from 'react-bootstrap';
-import {RootState} from '../StateManagement/Reducers/productReducers'
-//actions
-import {productsActions} from '../StateManagement/Actions/productActions'
 
+//actions 
+import {getProduct} from '../redux/actions/actions'
 //import components
 import Product from '../Components/Product/Product';
 
@@ -18,16 +17,12 @@ interface propsHome{
 }
 const Home = (props: propsHome) => {
 //redux
-    const dispatch = useDispatch();
-
-    const productList = useSelector((state:any) => state?.productList)
-    
-   const {loading,products} = productList
-
-    console.log(loading,products)
+    const dispatch = useDispatch()
+    const products = useSelector((state: any) => state.productList.products)
+    console.log(products)
     useEffect(() => {
-        dispatch(productsActions())
-    },[dispatch])
+       dispatch(getProduct()) 
+    },[])
     return (
         <div>
                 <b.Row><h2>محصولات برترـــ</h2></b.Row>
