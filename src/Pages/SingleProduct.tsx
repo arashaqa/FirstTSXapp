@@ -9,7 +9,8 @@ import { productsActions } from '../StateManagement/Actions/productActions';
 type Props = {
     match?: any;
     params: any;
-    pro: any
+    pro: any,
+    find:void,
 }
 interface PropsInterface {
     match: Props;
