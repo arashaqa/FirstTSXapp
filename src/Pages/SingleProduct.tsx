@@ -21,8 +21,8 @@ const dispatch = useDispatch()
 
     const Products = useSelector((state:any)=>{state?.productList.products})
     useEffect(() => {
-        dispatch(productsActions())
-    })
+        dispatch(getProduct())
+    },[dispatch])
     const product = Products.find((item:any) => {
         return item._id === match.params.id
     })
