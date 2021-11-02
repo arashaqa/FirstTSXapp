@@ -1,8 +1,10 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import * as b from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import {useSelector,useDispatch} from 'react-redux'
+import { productsActions } from '../StateManagement/Actions/productActions';
 
-import Products from '../products'
+// import Products from '../products'
 
 type Props = {
     match?: any;
@@ -12,9 +14,15 @@ type Props = {
 interface PropsInterface {
     match: Props;
 }
-const SingleProduct = ({ match }: PropsInterface) => {
 
-    const product = Products.find((item) => {
+const SingleProduct = ({ match }: PropsInterface) => {
+const dispatch = useDispatch()
+
+    const Products = useSelector((state:any)=>{state?.productList.products})
+    useEffect(() => {
+        dispatch(productsActions())
+    })
+    const product = Products.find((item:any) => {
         return item._id === match.params.id
     })
 
