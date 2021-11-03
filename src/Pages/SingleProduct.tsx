@@ -9,7 +9,8 @@ import { getProduct } from '../redux/actions/actions';
 type Props = {
     match?: any;
     params: any;
-    pro: any
+    pro: any,
+    find:void,
 }
 interface PropsInterface {
     match: Props;
@@ -19,10 +20,12 @@ const SingleProduct = ({ match }: PropsInterface) => {
     const dispatch = useDispatch()
 
     const Products = useSelector((state:any)=>state?.productList.products)
+    const loading = useSelector((state:any)=>state?.productList.loading)
+    const error = useSelector((state:any)=>state?.productList.error)
     
     useEffect(() => {
         dispatch(getProduct())
-    })
+    },[])
     const product = Products.find((item:any) => {
         return item._id === match.params.id
     })
@@ -32,6 +35,7 @@ const SingleProduct = ({ match }: PropsInterface) => {
 
     return (
         <div>
+            {loading ?  <h1>loading...</h1> : console.log('hello')}
             <b.Row className='my-2 '>
                 <b.Col>
                     <b.Button className='btn-danger' onClick={() => history.goBack()}>بازگشت</b.Button>
@@ -49,7 +53,7 @@ const SingleProduct = ({ match }: PropsInterface) => {
                         </b.Card.Body>
                     </b.Card>
                 </b.Col>
-                <b.Col xs={5} md>
+                <b.Col xs={12} md>
                     <b.Card className='shadow-sm p-3 mb-5 bg-white'>
                         <b.Card.Header>
                             <h5 style={{ textAlign: 'center' }}>{product?.name}</h5>
@@ -76,7 +80,3 @@ const SingleProduct = ({ match }: PropsInterface) => {
 }
 
 export default SingleProduct
-function getProducts(): any {
-    throw new Error('Function not implemented.');
-}
-

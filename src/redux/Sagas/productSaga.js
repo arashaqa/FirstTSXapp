@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 function getApi() {
     return fetch('http://localhost:8001/api/products', {
         method: "GET",
@@ -19,6 +19,6 @@ function* fetchProducts(action) {
 }
 
 function* productsSaga() {
-    yield takeEvery("GET_PRODUCTS_REQUESTED" , fetchProducts)
+    yield takeLatest("GET_PRODUCTS_REQUESTED" , fetchProducts)
 }
 export default productsSaga;

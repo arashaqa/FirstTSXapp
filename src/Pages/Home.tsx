@@ -21,14 +21,14 @@ const Home = (props: propsHome) => {
     const products = useSelector((state: any) => state.productList.products)
     console.log(products)
     useEffect(() => {
-       dispatch(getProduct()) 
+        dispatch(getProduct()) 
     },[])
     return (
         <div>
                 <b.Row><h2>محصولات برترـــ</h2></b.Row>
             <b.Row>
                 {products && products.map((item:any) => {
-                    return (<b.Col xs={4} sm={6} lg={4} md={4} key={item._id}>
+                    return (<b.Col xs={6} sm={6} lg={4} md={4} key={item._id}>
 											<Product product={item}/>
                     </b.Col>)
                 })}
