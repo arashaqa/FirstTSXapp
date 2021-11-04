@@ -75,6 +75,7 @@ const SingleProduct = ({ match }: PropsInterface) => {
         </div>
     )
 
+    
 }
 
 export default SingleProduct
