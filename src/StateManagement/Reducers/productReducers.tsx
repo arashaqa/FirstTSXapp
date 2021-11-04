@@ -23,4 +23,15 @@ export const productReducers = (state=initialState,action:ActionInterface) => {
             return state
     }
 }
+
+export const productDetailReducers = (state={product:{}},action:ActionInterface) => {
+    switch (action.type) {
+        case 'send_req_detail':
+            return { loading: true, ...state}
+        case 'req_success_detail':
+            return { loading: false, product: action.payload }
+        default:
+            return state
+    }
+}
 export type RootState = ReturnType<typeof productReducers>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {useSelector,useDispatch} from 'react-redux'
 import * as b from 'react-bootstrap';
-import {RootState} from '../StateManagement/Reducers/productReducers'
+
 //actions
 import {productsActions} from '../StateManagement/Actions/productActions'
 
@@ -24,7 +24,7 @@ const Home = (props: propsHome) => {
     
    const {loading,products} = productList
 
-    console.log(loading,products)
+   
     useEffect(() => {
         dispatch(productsActions())
     },[dispatch])
