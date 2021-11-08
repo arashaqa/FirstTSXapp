@@ -75,7 +75,7 @@ const SingleProduct = ({ match, history }: PropsInterface) => {
                             </b.ListGroup>
                         </b.Card.Body>
                         <b.Card.Footer>
-                            <b.Button type='button' className='btn btn-block' >خرید محصول</b.Button>
+                            <b.Button onClick={addToCartHandler} type='button' className='btn btn-block' >خرید محصول</b.Button>
                         </b.Card.Footer>
                     </b.Card>
                 </b.Col>
