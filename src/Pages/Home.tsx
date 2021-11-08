@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import * as b from 'react-bootstrap';
 
-//actions
-import { productsActions } from '../StateManagement/Actions/productActions'
-
+//actions 
+import {getProduct} from '../redux/actions/actions'
 //import components
 import Product from '../Components/Product/Product';
 
@@ -17,30 +16,22 @@ interface propsHome {
     price?: number,
 }
 const Home = (props: propsHome) => {
-    //redux
-    const dispatch = useDispatch();
-
-    const productList = useSelector((state: any) => state?.productList)
-
-
-    const { loading, products } = productList
-
+//redux
+    const dispatch = useDispatch()
+    const products = useSelector((state: any) => state.productList.products)
+    console.log(products)
     useEffect(() => {
-        dispatch(productsActions())
-    }, [dispatch])
+        dispatch(getProduct()) 
+    },[])
     return (
         <div>
             <b.Row><h2>محصولات برترـــ</h2></b.Row>
             <b.Row>
-                {loading ? <p>loading...</p> :
-                    <>
-                        {products && products.map((item: any) => {
-                            return (<b.Col xs={4} sm={6} lg={4} md={4} key={item._id}>
-                                <Product product={item} />
-                            </b.Col>)
-                        })}
-                    </>
-                }
+                {products && products.map((item:any) => {
+                    return (<b.Col xs={6} sm={6} lg={4} md={4} key={item._id}>
+											<Product product={item}/>
+                    </b.Col>)
+                })}
             </b.Row>
 
         </div>

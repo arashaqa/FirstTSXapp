@@ -9,7 +9,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 //redux
 import { Provider } from 'react-redux'
-import store from './StateManagement/store'
+import store from './redux/store'
+
+//saga
+
 ReactDOM.render(
 <Provider store={store}>
   <App />

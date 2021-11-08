@@ -8,7 +8,7 @@ import Footer from './Components/Footer/Footer';
 //PageComponent
 import Home from './Pages/Home';
 import SingleProduct from './Pages/SingleProduct';
-import Cart from './Pages/Cart'
+import Cart from './Pages/Cart';
 
 //sass
 import './App.scss';
