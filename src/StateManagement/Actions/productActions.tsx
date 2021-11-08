@@ -12,7 +12,6 @@ export const productsActions = () => async (dispatch: any) => {
    
 }
 export const productsDetailActions = (id:any) => async (dispatch: any) => {
-    
     try {
         dispatch({ type: 'send_req_detail' })
         const response = await axios.get(`http://localhost:8001/api/products/${id}`)

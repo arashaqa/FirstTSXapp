@@ -10,30 +10,36 @@ type Props = {
     match: any;
     params: any;
     pro: any,
-
+    
 }
 interface PropsInterface {
     match: Props;
+    history: {
+        push(url: string): void;
+    };
 }
 
-const SingleProduct = ({ match }: PropsInterface) => {
-    const history = useHistory()
+const SingleProduct = ({ match, history }: PropsInterface) => {
+    const goBack = useHistory()
     const dispatch = useDispatch()
     const { loading, product } = useSelector((state: any) => {
         return state.productDetail
     })
 
-    console.log(match.params.id)
+
     useEffect(() => {
         dispatch(productsDetailActions(match.params.id))
     }, [dispatch, match])
 
+    const addToCartHandler = () => {
+        history.push(`/cart/${match.params.id}`)
+    }
 
     return (
         <div>
             <b.Row className='my-2 '>
                 <b.Col>
-                    <b.Button className='btn-danger' onClick={() => history.goBack()}>بازگشت</b.Button>
+                    <b.Button className='btn-danger' onClick={() => goBack.goBack()}>بازگشت</b.Button>
                 </b.Col>
             </b.Row>
             {loading ? <p style={{ textAlign: 'center' }}>درحال بارگذاری </p> :
@@ -65,7 +71,7 @@ const SingleProduct = ({ match }: PropsInterface) => {
                                 </b.ListGroup>
                             </b.Card.Body>
                             <b.Card.Footer>
-                                <b.Button type='button' className='btn btn-block' >خرید محصول</b.Button>
+                                <b.Button onClick={addToCartHandler} type='button' className='btn btn-block' >خرید محصول</b.Button>
                             </b.Card.Footer>
                         </b.Card>
                     </b.Col>
@@ -75,7 +81,7 @@ const SingleProduct = ({ match }: PropsInterface) => {
         </div>
     )
 
-    
+
 }
 
 export default SingleProduct

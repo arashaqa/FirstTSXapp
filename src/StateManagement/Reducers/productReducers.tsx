@@ -4,11 +4,6 @@ interface ActionInterface {
     type?:string
 }
 
-type state = {
-    state: any,
-    loading: boolean,
-    products?:any
-}
 const initialState = {
     products: [],
     loading:false,
